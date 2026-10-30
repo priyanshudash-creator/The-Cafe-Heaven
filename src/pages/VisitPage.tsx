@@ -8,3 +8,4 @@ export const VisitPage: React.FC = () => {
     </div>
   );
 };
+
