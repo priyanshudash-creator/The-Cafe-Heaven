@@ -2,7 +2,7 @@ import React from 'react';
 import { Hero } from '../components/Hero';
 import { MENU_ITEMS } from '../data/menu';
 import { GALLERY_MANIFEST } from '../data/gallery';
-import { Sparkles, Flame, ArrowRight, Heart, MapPin } from 'lucide-react';
+import { Sparkles, Flame, ArrowRight, Heart, MapPin, Instagram, ExternalLink } from 'lucide-react';
 
 interface HomePageProps {
   onNavigate: (tab: string) => void;
@@ -237,7 +237,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               Located at Plot No. M/5/R/27, Gajapati Nagar, Acharya Vihar. Open every single day from 10:00 AM to 10:00 PM for freshly pulled coffees, celebratory cakes, and warm memories.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => onNavigate('visit')}
                 className="px-6 py-3 bg-terracotta-500 hover:bg-terracotta-600 text-white rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all shadow-md flex items-center space-x-2"
@@ -245,6 +245,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <MapPin className="w-4 h-4" />
                 <span>Visit Us & Get Directions</span>
               </button>
+
+              <a
+                href="https://www.instagram.com/the.cafeheaven/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all shadow-md flex items-center space-x-2"
+              >
+                <Instagram className="w-4 h-4" />
+                <span>Instagram @the.cafeheaven</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
 
               <button
                 onClick={() => onNavigate('menu')}

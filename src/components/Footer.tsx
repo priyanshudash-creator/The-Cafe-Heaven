@@ -1,5 +1,5 @@
 import React from 'react';
-import { Coffee, MapPin, Clock, ExternalLink } from 'lucide-react';
+import { Coffee, MapPin, Clock, ExternalLink, Instagram } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (tabId: string) => void;
@@ -10,6 +10,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     onNavigate(tab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const googleMapsUrl = 'https://maps.app.goo.gl/5UR6coRrVfRBav3q6';
+  const instagramUrl = 'https://www.instagram.com/the.cafeheaven/';
 
   return (
     <footer className="bg-espresso-950 text-cream-200 border-t border-espresso-800">
@@ -36,9 +39,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               A serene bohemian café offering handcrafted pastries, artisanal cheesecakes, celebration cakes, barista coffee, and savory kitchen starters in a relaxed Mediterranean ambiance.
             </p>
 
-            <div className="pt-2 text-xs text-cream-400">
-              <span className="inline-block px-3 py-1 rounded-full bg-espresso-900 border border-espresso-800 text-coffee-300">
-                8 Handcrafted Categories • 72 Menu Selections with Photos
+            <div className="pt-2 flex flex-wrap items-center gap-2">
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#833ab4]/30 via-[#fd1d1d]/30 to-[#fcb045]/30 border border-[#fd1d1d]/40 text-cream-100 hover:text-white transition-all text-xs font-semibold"
+              >
+                <Instagram className="w-3.5 h-3.5 text-pink-400" />
+                <span>@the.cafeheaven</span>
+              </a>
+
+              <span className="inline-block px-3 py-1 rounded-full bg-espresso-900 border border-espresso-800 text-coffee-300 text-xs">
+                8 Categories • 72 Dishes
               </span>
             </div>
           </div>
@@ -112,14 +125,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col space-y-1.5">
               <a
-                href="https://maps.app.goo.gl/8gJqT3myEH5Zwr5e6"
+                href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-1.5 text-xs font-semibold text-terracotta-400 hover:text-terracotta-300 transition-colors underline"
               >
-                <span>Open Google Maps Directions</span>
+                <span>Google Maps: https://maps.app.goo.gl/5UR6coRrVfRBav3q6</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-1.5 text-xs font-semibold text-pink-400 hover:text-pink-300 transition-colors underline"
+              >
+                <span>Instagram: https://instagram.com/the.cafeheaven</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>

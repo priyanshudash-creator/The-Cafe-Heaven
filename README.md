@@ -11,7 +11,8 @@ Designed with a warm tropical-Mediterranean aesthetic: espresso brown, warm crea
 - **Establishment Name:** The Cafe Heaven
 - **Location:** Plot No. M/5/R/27, Gajapati Nagar, Acharya Vihar, Bhubaneswar, Odisha 751013
 - **Hours of Operation:** Monday – Sunday (All 7 Days), 10:00 AM – 10:00 PM
-- **Google Maps Listing:** [https://maps.app.goo.gl/8gJqT3myEH5Zwr5e6](https://maps.app.goo.gl/8gJqT3myEH5Zwr5e6)
+- **Google Maps Listing:** [https://maps.app.goo.gl/5UR6coRrVfRBav3q6](https://maps.app.goo.gl/5UR6coRrVfRBav3q6)
+- **Instagram:** [@the.cafeheaven](https://www.instagram.com/the.cafeheaven/)
 - **Architecture & Concept:** Contemporary Mediterranean & Boho-Chic Interior Design by Vogue Architect & Interiors (featuring arched partition portals, natural cane and rattan dining furniture, biophilic Heliconia motifs, and bold cobalt blue accents).
 
 ---
