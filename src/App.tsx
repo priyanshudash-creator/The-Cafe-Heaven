@@ -1,54 +1,60 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { OurStory } from './components/OurStory';
-import { MenuSection } from './components/MenuSection';
-import { GallerySection } from './components/GallerySection';
-import { VisitUs } from './components/VisitUs';
 import { Footer } from './components/Footer';
-import { MENU_ITEMS } from './data/menu';
+import { HomePage } from './pages/HomePage';
+import { StoryPage } from './pages/StoryPage';
+import { MenuPage } from './pages/MenuPage';
+import { GalleryPage } from './pages/GalleryPage';
+import { VisitPage } from './pages/VisitPage';
+
+export type TabId = 'home' | 'story' | 'menu' | 'gallery' | 'visit';
 
 export function App() {
-  const [activeSection, setActiveSection] = useState('hero');
-
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const navOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+  const getInitialTab = (): TabId => {
+    const hash = window.location.hash.replace('#', '').toLowerCase();
+    if (['home', 'story', 'menu', 'gallery', 'visit'].includes(hash)) {
+      return hash as TabId;
     }
+    return 'home';
+  };
+
+  const [activeTab, setActiveTab] = useState<TabId>(getInitialTab);
+
+  // Sync state with URL hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      if (['home', 'story', 'menu', 'gallery', 'visit'].includes(hash)) {
+        setActiveTab(hash as TabId);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleTabChange = (tab: string) => {
+    const validTab = (['home', 'story', 'menu', 'gallery', 'visit'].includes(tab) ? tab : 'home') as TabId;
+    setActiveTab(validTab);
+    window.location.hash = validTab;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-cream-100 text-espresso-900 selection:bg-terracotta-500 selection:text-white">
-      {/* Fixed Sticky Header Navigation */}
-      <Navbar onNavigate={scrollToSection} activeSection={activeSection} />
+      {/* Sticky Top Navigation Bar */}
+      <Navbar onNavigate={handleTabChange} activeTab={activeTab} />
 
-      {/* Main Content Sections */}
+      {/* Dynamic Multi-Page Router based on Active Tab */}
       <main className="flex-1">
-        <Hero
-          onExploreMenu={() => scrollToSection('menu')}
-          onVisitUs={() => scrollToSection('visit')}
-        />
-
-        <OurStory />
-
-        <MenuSection items={MENU_ITEMS} />
-
-        <GallerySection />
-
-        <VisitUs />
+        {activeTab === 'home' && <HomePage onNavigate={handleTabChange} />}
+        {activeTab === 'story' && <StoryPage onNavigate={handleTabChange} />}
+        {activeTab === 'menu' && <MenuPage />}
+        {activeTab === 'gallery' && <GalleryPage />}
+        {activeTab === 'visit' && <VisitPage />}
       </main>
 
       {/* Footer */}
-      <Footer onNavigate={scrollToSection} />
+      <Footer onNavigate={handleTabChange} />
     </div>
   );
 }

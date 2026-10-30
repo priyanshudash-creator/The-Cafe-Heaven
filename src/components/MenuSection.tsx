@@ -1,18 +1,21 @@
 import React, { useState, useMemo } from 'react';
-import { Search, X, Sparkles, Plus } from 'lucide-react';
+import { Search, X, Sparkles, Plus, LayoutGrid, List, Coffee, Flame } from 'lucide-react';
 import { MenuItem, MenuCategory } from '../types';
 import { MENU_CATEGORIES } from '../data/categories';
 import { COFFEE_ADD_ONS } from '../data/addOns';
 
 interface MenuSectionProps {
   items: MenuItem[];
+  showHeader?: boolean;
 }
 
-export const MenuSection: React.FC<MenuSectionProps> = ({ items }) => {
+export const MenuSection: React.FC<MenuSectionProps> = ({ items, showHeader = true }) => {
   const [selectedCategory, setSelectedCategory] = useState<MenuCategory | 'All'>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [dietaryFilter, setDietaryFilter] = useState<'All' | 'Veg' | 'Non-Veg'>('All');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [activeCoffeeItem, setActiveCoffeeItem] = useState<MenuItem | null>(null);
+  const [imgErrorMap, setImgErrorMap] = useState<Record<string, boolean>>({});
 
   // Filter items based on Category, Search query, and Dietary preference
   const filteredItems = useMemo(() => {
@@ -70,29 +73,35 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ items }) => {
     setDietaryFilter('All');
   };
 
+  const handleImageError = (id: string) => {
+    setImgErrorMap((prev) => ({ ...prev, [id]: true }));
+  };
+
   return (
-    <section id="menu" className="py-24 bg-cream-100 border-b border-cream-300">
+    <section id="menu" className="py-12 sm:py-20 bg-cream-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cream-200 border border-cream-300 text-xs font-medium text-coffee-600">
-            <Sparkles className="w-3.5 h-3.5 text-terracotta-500" />
-            <span className="uppercase tracking-wider">Artisanal Bakery & Cafe Menu</span>
+        {/* Section Header */}
+        {showHeader && (
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cream-200 border border-cream-300 text-xs font-semibold text-coffee-600">
+              <Sparkles className="w-3.5 h-3.5 text-terracotta-500" />
+              <span className="uppercase tracking-wider">Artisanal Bakery, Bistro & Specialty Coffee</span>
+            </div>
+
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-espresso-900 tracking-tight">
+              Our Complete Menu
+            </h1>
+
+            <p className="font-sans text-base sm:text-lg text-espresso-800/80 leading-relaxed">
+              Every dish crafted with genuine passion, authentic ingredients, and exquisite presentation. Explore all 72 creations across our 8 artisanal categories.
+            </p>
           </div>
+        )}
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-espresso-900 tracking-tight">
-            Our Complete Menu
-          </h2>
-
-          <p className="font-sans text-base sm:text-lg text-espresso-800/80 leading-relaxed">
-            Every dish crafted with authentic ingredients, exact proportions, and genuine love. Explore all 8 categories across our bakery, coffees, and savory kitchen.
-          </p>
-        </div>
-
-        {/* Controls: Search Bar & Dietary Filter */}
+        {/* Search, Dietary Filters & View Toggle Bar */}
         <div className="bg-white p-4 sm:p-5 rounded-2xl border border-cream-300 shadow-sm mb-8 space-y-4 max-w-5xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center gap-3">
+          <div className="flex flex-col md:flex-row items-center gap-3">
             
             {/* Search Input */}
             <div className="relative flex-1 w-full">
@@ -101,7 +110,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ items }) => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search any dish, flavor, or ingredient (e.g. Cheesecake, Peri Peri, Espresso)..."
+                placeholder="Search any dish (e.g. Cheesecake, Peri Peri Chicken, Cortado, Fruit Cake)..."
                 className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-cream-100/70 border border-cream-300 text-sm text-espresso-900 placeholder:text-coffee-400 focus:outline-none focus:ring-2 focus:ring-terracotta-500"
               />
               {searchQuery && (
@@ -134,13 +143,41 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ items }) => {
               ))}
             </div>
 
+            {/* View Mode Toggle: Grid with Photos vs List */}
+            <div className="flex items-center space-x-1 bg-cream-100 p-1 rounded-xl border border-cream-300 shrink-0 self-end sm:self-center">
+              <button
+                onClick={() => setViewMode('grid')}
+                className={`p-2 rounded-lg text-xs font-semibold flex items-center space-x-1.5 transition-all ${
+                  viewMode === 'grid'
+                    ? 'bg-white text-espresso-900 shadow-sm'
+                    : 'text-coffee-600 hover:text-espresso-900'
+                }`}
+                title="Visual Card Grid with Photos"
+              >
+                <LayoutGrid className="w-4 h-4" />
+                <span className="hidden sm:inline">Photo Cards</span>
+              </button>
+              <button
+                onClick={() => setViewMode('list')}
+                className={`p-2 rounded-lg text-xs font-semibold flex items-center space-x-1.5 transition-all ${
+                  viewMode === 'list'
+                    ? 'bg-white text-espresso-900 shadow-sm'
+                    : 'text-coffee-600 hover:text-espresso-900'
+                }`}
+                title="Bistro Compact List"
+              >
+                <List className="w-4 h-4" />
+                <span className="hidden sm:inline">List View</span>
+              </button>
+            </div>
+
           </div>
 
           {/* Results Summary Bar */}
           <div className="flex items-center justify-between text-xs text-coffee-600 pt-1 border-t border-cream-200">
             <span>
               Showing <strong className="text-espresso-900 font-bold">{filteredItems.length}</strong> of{' '}
-              <strong className="text-espresso-900">{items.length}</strong> menu selections
+              <strong className="text-espresso-900">{items.length}</strong> creations
             </span>
 
             {(searchQuery || dietaryFilter !== 'All' || selectedCategory !== 'All') && (
@@ -215,52 +252,67 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ items }) => {
           </div>
         )}
 
-        {/* Menu Listings: Bistro Row Scan View */}
-        <div className="space-y-12 max-w-5xl mx-auto">
+        {/* Menu Listings */}
+        <div className="space-y-14 max-w-6xl mx-auto">
           {categorizedGroups.map((group) => {
             const catInfo = MENU_CATEGORIES.find((c) => c.id === group.category);
 
             return (
-              <div
-                key={group.category}
-                className="bg-white rounded-3xl border border-cream-300 p-6 sm:p-8 shadow-sm space-y-6 text-left"
-              >
+              <div key={group.category} className="space-y-6 text-left">
                 {/* Category Header */}
-                <div className="border-b border-cream-200 pb-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-espresso-900">
+                <div className="border-b border-cream-300/80 pb-3 flex items-end justify-between flex-wrap gap-2">
+                  <div>
+                    <h2 className="font-serif text-2xl sm:text-3xl font-bold text-espresso-900">
                       {group.category}
-                    </h3>
-                    <span className="text-xs font-bold uppercase tracking-wider text-coffee-600 bg-cream-100 px-3 py-1 rounded-full border border-cream-300">
-                      {group.items.length} {group.items.length === 1 ? 'Dish' : 'Dishes'}
-                    </span>
+                    </h2>
+                    {catInfo && (
+                      <p className="text-xs sm:text-sm text-espresso-800/75 mt-1 leading-relaxed">
+                        {catInfo.description}
+                      </p>
+                    )}
                   </div>
-                  {catInfo && (
-                    <p className="text-xs sm:text-sm text-espresso-800/75 mt-1.5 leading-relaxed">
-                      {catInfo.description}
-                    </p>
-                  )}
+                  <span className="text-xs font-bold uppercase tracking-wider text-coffee-600 bg-white px-3 py-1 rounded-full border border-cream-300 shadow-xs">
+                    {group.items.length} {group.items.length === 1 ? 'Creation' : 'Creations'}
+                  </span>
                 </div>
 
-                {/* Items Row Scan List */}
-                <div className="divide-y divide-cream-200">
-                  {group.items.map((item) => (
-                    <div
-                      key={item.id}
-                      className="py-4 sm:py-5 first:pt-2 last:pb-2 group hover:bg-cream-50/60 -mx-4 sm:-mx-6 px-4 sm:px-6 rounded-xl transition-colors"
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        
-                        {/* Left: Dish Name, Badges, Weight, Description */}
-                        <div className="space-y-1 flex-1">
-                          <div className="flex flex-wrap items-center gap-2">
-                            {/* Veg / Non-Veg Indicator */}
+                {/* VIEW MODE 1: PHOTO CARD GRID */}
+                {viewMode === 'grid' && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {group.items.map((item) => (
+                      <div
+                        key={item.id}
+                        className="bg-white rounded-2xl border border-cream-300 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group hover:-translate-y-1"
+                      >
+                        {/* Food Image Container with Badges */}
+                        <div className="relative aspect-[4/3] bg-cream-200 overflow-hidden">
+                          {item.image && !imgErrorMap[item.id] ? (
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              loading="lazy"
+                              onError={() => handleImageError(item.id)}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex flex-col items-center justify-center bg-cream-200 text-coffee-500 p-4 text-center">
+                              <Coffee className="w-8 h-8 mb-1 opacity-60" />
+                              <span className="text-xs font-medium text-coffee-600">{item.name}</span>
+                            </div>
+                          )}
+
+                          {/* Gradient overlay on image bottom */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
+
+                          {/* Top Badges: Veg/Non-Veg + Must Try */}
+                          <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 flex-wrap">
+                            {/* Veg / Non-veg dot indicator */}
                             {item.isVeg !== undefined && (
                               <span
-                                className={`inline-flex items-center justify-center w-4 h-4 border rounded-sm shrink-0 ${
-                                  item.isVeg ? 'border-emerald-600' : 'border-red-600'
+                                className={`inline-flex items-center justify-center w-5 h-5 bg-white/95 rounded shadow-xs backdrop-blur-xs ${
+                                  item.isVeg ? 'border border-emerald-600' : 'border border-red-600'
                                 }`}
-                                title={item.isVeg ? 'Vegetarian' : 'Non-Vegetarian'}
+                                title={item.isVeg ? 'Pure Vegetarian' : 'Non-Vegetarian'}
                               >
                                 <span
                                   className={`w-2 h-2 rounded-full ${
@@ -270,116 +322,230 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ items }) => {
                               </span>
                             )}
 
-                            {/* Dish Name */}
-                            <span className="font-serif text-base sm:text-lg font-bold text-espresso-900 group-hover:text-terracotta-600 transition-colors">
+                            {/* Must Try Badge (e.g. Peri Peri Fried Chicken) */}
+                            {item.badge && (
+                              <span className="px-2 py-0.5 rounded-full bg-terracotta-500 text-white text-[10px] font-bold tracking-wide uppercase shadow-sm flex items-center space-x-1">
+                                <Flame className="w-3 h-3" />
+                                <span>{item.badge}</span>
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Weight badge (e.g. 450 g Fruit & Nuts Cake) */}
+                          {item.weight && (
+                            <div className="absolute top-2.5 right-2.5">
+                              <span className="px-2 py-0.5 rounded-full bg-black/75 text-white text-[10px] font-semibold backdrop-blur-xs shadow-xs">
+                                {item.weight}
+                              </span>
+                            </div>
+                          )}
+
+                          {/* Price Tag Overlay */}
+                          <div className="absolute bottom-2.5 right-2.5">
+                            <span className="px-2.5 py-1 rounded-lg bg-espresso-950/90 text-cream-100 font-serif font-bold text-sm shadow-md backdrop-blur-xs border border-cream-200/20">
+                              ₹{item.price}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Card Content */}
+                        <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+                          <div className="space-y-1.5">
+                            <h3 className="font-serif text-base sm:text-lg font-bold text-espresso-950 group-hover:text-terracotta-600 transition-colors leading-snug">
+                              {item.name}
+                            </h3>
+
+                            {item.description && (
+                              <p className="text-xs text-espresso-800/75 leading-relaxed line-clamp-2">
+                                {item.description}
+                              </p>
+                            )}
+                          </div>
+
+                          {/* Action footer */}
+                          <div className="pt-2 border-t border-cream-200 flex items-center justify-between">
+                            <span className="text-[11px] font-medium text-coffee-600 uppercase tracking-wider">
+                              {item.category.split('&')[0]}
+                            </span>
+
+                            {item.category === 'Hot Coffee & Beverages' ? (
+                              <button
+                                onClick={() => setActiveCoffeeItem(item)}
+                                className="text-[11px] font-semibold text-terracotta-600 hover:text-terracotta-700 bg-terracotta-50 hover:bg-terracotta-100 px-2 py-1 rounded transition-colors flex items-center space-x-1"
+                              >
+                                <Plus className="w-3 h-3" />
+                                <span>Add-ons (+₹50)</span>
+                              </button>
+                            ) : (
+                              <span className="font-serif font-bold text-sm text-espresso-900">
+                                ₹{item.price}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* VIEW MODE 2: BISTRO LIST SCAN VIEW (with photo thumbnails) */}
+                {viewMode === 'list' && (
+                  <div className="bg-white rounded-3xl border border-cream-300 p-4 sm:p-6 shadow-sm divide-y divide-cream-200">
+                    {group.items.map((item) => (
+                      <div
+                        key={item.id}
+                        className="py-4 first:pt-1 last:pb-1 flex items-center gap-4 group hover:bg-cream-50/70 -mx-2 px-2 rounded-xl transition-colors"
+                      >
+                        {/* Thumbnail Image */}
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-cream-200 shrink-0 border border-cream-300 relative">
+                          {item.image && !imgErrorMap[item.id] ? (
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              loading="lazy"
+                              onError={() => handleImageError(item.id)}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center text-coffee-500">
+                              <Coffee className="w-6 h-6 opacity-50" />
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Middle Info */}
+                        <div className="flex-1 space-y-1 min-w-0">
+                          <div className="flex flex-wrap items-center gap-2">
+                            {/* Veg / Non-Veg Indicator */}
+                            {item.isVeg !== undefined && (
+                              <span
+                                className={`inline-flex items-center justify-center w-3.5 h-3.5 border rounded-xs shrink-0 ${
+                                  item.isVeg ? 'border-emerald-600' : 'border-red-600'
+                                }`}
+                                title={item.isVeg ? 'Vegetarian' : 'Non-Vegetarian'}
+                              >
+                                <span
+                                  className={`w-1.5 h-1.5 rounded-full ${
+                                    item.isVeg ? 'bg-emerald-600' : 'bg-red-600'
+                                  }`}
+                                />
+                              </span>
+                            )}
+
+                            <span className="font-serif text-base sm:text-lg font-bold text-espresso-900 group-hover:text-terracotta-600 transition-colors truncate">
                               {item.name}
                             </span>
 
-                            {/* Weight badge (e.g. 450 g Fruit & Nuts Cake) */}
                             {item.weight && (
-                              <span className="px-2 py-0.5 rounded bg-cream-200 text-espresso-900 text-[11px] font-semibold">
+                              <span className="px-2 py-0.5 rounded bg-cream-200 text-espresso-900 text-[10px] font-semibold">
                                 {item.weight}
                               </span>
                             )}
 
-                            {/* Must Try Badge (especially Peri Peri Fried Chicken) */}
                             {item.badge && (
-                              <span className="px-2.5 py-0.5 rounded-full bg-terracotta-500 text-white text-[11px] font-bold tracking-wide uppercase shadow-xs">
+                              <span className="px-2 py-0.5 rounded-full bg-terracotta-500 text-white text-[10px] font-bold tracking-wide uppercase">
                                 ★ {item.badge}
                               </span>
                             )}
                           </div>
 
-                          {/* Description */}
                           {item.description && (
-                            <p className="text-xs sm:text-sm text-espresso-800/80 leading-relaxed max-w-3xl">
+                            <p className="text-xs sm:text-sm text-espresso-800/80 leading-relaxed line-clamp-1 sm:line-clamp-2">
                               {item.description}
                             </p>
                           )}
 
-                          {/* Coffee Add-On Prompt for Hot Coffee & Beverages */}
                           {item.category === 'Hot Coffee & Beverages' && (
-                            <div className="pt-1.5 flex items-center space-x-2">
-                              <button
-                                onClick={() => setActiveCoffeeItem(item)}
-                                className="inline-flex items-center space-x-1 text-[11px] font-medium text-terracotta-600 hover:text-terracotta-700 bg-terracotta-50 px-2 py-0.5 rounded border border-terracotta-200"
-                              >
-                                <Plus className="w-3 h-3" />
-                                <span>Customize with ₹50 Add-ons (Hazelnut, Caramel, Oat milk)</span>
-                              </button>
-                            </div>
+                            <button
+                              onClick={() => setActiveCoffeeItem(item)}
+                              className="text-[11px] font-medium text-terracotta-600 hover:text-terracotta-700 underline inline-flex items-center space-x-1"
+                            >
+                              <span>Customize with ₹50 Add-ons</span>
+                            </button>
                           )}
                         </div>
 
-                        {/* Right: Price */}
+                        {/* Price */}
                         <div className="text-right shrink-0">
-                          <span className="font-serif text-lg sm:text-xl font-bold text-espresso-950">
+                          <span className="font-serif text-base sm:text-lg font-bold text-espresso-950">
                             ₹{item.price}
                           </span>
                         </div>
-
                       </div>
-                    </div>
-                  ))}
-                </div>
-
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}
         </div>
 
-      </div>
-
-      {/* Coffee Add-on Modal */}
-      {activeCoffeeItem && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-espresso-950/80 backdrop-blur-sm p-4 animate-fadeIn"
-        >
-          <div className="bg-white rounded-3xl max-w-md w-full p-6 border border-cream-300 shadow-2xl text-left space-y-4">
-            <div className="flex items-center justify-between border-b border-cream-200 pb-3">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-terracotta-600">
-                  Coffee Add-ons
-                </span>
-                <h3 className="font-serif text-lg font-bold text-espresso-900">
-                  Customize {activeCoffeeItem.name}
-                </h3>
-              </div>
-              <button
-                onClick={() => setActiveCoffeeItem(null)}
-                className="p-1 rounded-lg text-espresso-700 hover:bg-cream-100"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <p className="text-xs text-espresso-800/80">
-              All add-ons are prepared fresh at the beverage counter for an exact ₹50 enhancement.
-            </p>
-
-            <div className="divide-y divide-cream-100">
-              {COFFEE_ADD_ONS.map((addon) => (
-                <div key={addon.name} className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-medium text-espresso-900">{addon.name}</span>
-                  <span className="font-serif font-bold text-terracotta-600">+₹{addon.price}</span>
+        {/* Coffee Add-On Modal */}
+        {activeCoffeeItem && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200"
+            onClick={() => setActiveCoffeeItem(null)}
+          >
+            <div
+              className="bg-white rounded-3xl border border-cream-300 shadow-2xl max-w-lg w-full p-6 sm:p-8 space-y-6 text-left"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-start justify-between border-b border-cream-200 pb-4">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-terracotta-600">
+                    Barista Customization
+                  </span>
+                  <h3 className="font-serif text-2xl font-bold text-espresso-900 mt-0.5">
+                    {activeCoffeeItem.name}
+                  </h3>
+                  <span className="text-sm font-semibold text-espresso-800">
+                    Base: ₹{activeCoffeeItem.price}
+                  </span>
                 </div>
-              ))}
-            </div>
 
-            <div className="pt-2">
-              <button
-                onClick={() => setActiveCoffeeItem(null)}
-                className="w-full py-2.5 bg-espresso-900 text-cream-100 rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-espresso-800 transition-colors"
-              >
-                Done
-              </button>
+                <button
+                  onClick={() => setActiveCoffeeItem(null)}
+                  className="p-1 rounded-full text-coffee-400 hover:text-espresso-900 hover:bg-cream-100"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-xs sm:text-sm text-espresso-800/80">
+                  Enhance your cup with our curated house syrups and barista alternatives (+₹50 each):
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {COFFEE_ADD_ONS.map((addon) => (
+                    <div
+                      key={addon.name}
+                      className="p-3 rounded-xl border border-cream-300 bg-cream-50 flex items-center justify-between"
+                    >
+                      <span className="text-xs font-medium text-espresso-900">
+                        {addon.name}
+                      </span>
+                      <span className="text-xs font-bold text-terracotta-600 bg-white px-2 py-0.5 rounded border border-cream-200">
+                        +₹{addon.price}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-2 flex justify-end">
+                <button
+                  onClick={() => setActiveCoffeeItem(null)}
+                  className="px-6 py-2.5 bg-espresso-900 hover:bg-espresso-800 text-cream-100 rounded-full text-xs font-semibold tracking-wide uppercase transition-colors"
+                >
+                  Done
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
+      </div>
     </section>
   );
 };

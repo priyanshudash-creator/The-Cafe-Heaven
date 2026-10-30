@@ -1,11 +1,16 @@
 import React from 'react';
-import { Coffee, MapPin, Clock, ExternalLink, Heart } from 'lucide-react';
+import { Coffee, MapPin, Clock, ExternalLink } from 'lucide-react';
 
 interface FooterProps {
-  onNavigate: (sectionId: string) => void;
+  onNavigate: (tabId: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const handleNavigate = (tab: string) => {
+    onNavigate(tab);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-espresso-950 text-cream-200 border-t border-espresso-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -33,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
             <div className="pt-2 text-xs text-cream-400">
               <span className="inline-block px-3 py-1 rounded-full bg-espresso-900 border border-espresso-800 text-coffee-300">
-                8 Handcrafted Categories • 72 Menu Selections
+                8 Handcrafted Categories • 72 Menu Selections with Photos
               </span>
             </div>
           </div>
@@ -41,12 +46,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Quick Navigation Links */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="font-serif text-base font-bold text-cream-100 tracking-wide uppercase text-xs">
-              Navigation
+              Page Navigation
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-cream-300/90">
               <li>
                 <button
-                  onClick={() => onNavigate('hero')}
+                  onClick={() => handleNavigate('home')}
                   className="hover:text-terracotta-400 transition-colors"
                 >
                   Home
@@ -54,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('story')}
+                  onClick={() => handleNavigate('story')}
                   className="hover:text-terracotta-400 transition-colors"
                 >
                   Our Story & Atmosphere
@@ -62,15 +67,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('menu')}
+                  onClick={() => handleNavigate('menu')}
                   className="hover:text-terracotta-400 transition-colors"
                 >
-                  Complete 72-Item Menu
+                  Complete Menu (72 Dishes)
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('gallery')}
+                  onClick={() => handleNavigate('gallery')}
                   className="hover:text-terracotta-400 transition-colors"
                 >
                   Authentic Gallery
@@ -78,10 +83,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('visit')}
+                  onClick={() => handleNavigate('visit')}
                   className="hover:text-terracotta-400 transition-colors"
                 >
-                  Visit Acharya Vihar
+                  Visit Us in Acharya Vihar
                 </button>
               </li>
             </ul>
@@ -101,9 +106,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </span>
               </div>
 
-              <div className="flex items-start space-x-2.5">
-                <Clock className="w-4 h-4 text-terracotta-400 shrink-0 mt-0.5" />
-                <span>Monday – Sunday: 10:00 AM – 10:00 PM</span>
+              <div className="flex items-center space-x-2.5">
+                <Clock className="w-4 h-4 text-terracotta-400 shrink-0" />
+                <span>Monday – Sunday: 10:00 AM – 10:00 PM (Daily)</span>
               </div>
             </div>
 
@@ -112,9 +117,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 href="https://maps.app.goo.gl/8gJqT3myEH5Zwr5e6"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-1.5 text-xs text-terracotta-400 hover:text-terracotta-300 font-medium"
+                className="inline-flex items-center space-x-1.5 text-xs font-semibold text-terracotta-400 hover:text-terracotta-300 transition-colors underline"
               >
-                <span>Open Google Maps Listing</span>
+                <span>Open Google Maps Directions</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -122,17 +127,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         </div>
 
-        {/* Bottom Copyright & Verification Line */}
-        <div className="mt-12 pt-8 border-t border-espresso-900 flex flex-col sm:flex-row items-center justify-between text-xs text-cream-400/70 gap-3">
-          <p>
-            © {new Date().getFullYear()} The Cafe Heaven, Acharya Vihar. All rights reserved.
-          </p>
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-espresso-900/80 flex flex-col sm:flex-row items-center justify-between text-xs text-cream-400 gap-4">
+          <p>© {new Date().getFullYear()} The Cafe Heaven, Acharya Vihar. All rights reserved.</p>
           <p className="flex items-center space-x-1">
-            <span>Handcrafted with care for food & coffee lovers</span>
-            <Heart className="w-3.5 h-3.5 text-terracotta-500 fill-terracotta-500 inline" />
+            <span>Interior Architecture by Vogue Architect & Interiors</span>
           </p>
         </div>
-
       </div>
     </footer>
   );

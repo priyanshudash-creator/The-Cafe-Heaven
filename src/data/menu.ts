@@ -3,7 +3,7 @@ import { COFFEE_ADD_ONS } from './addOns.ts';
 
 export const MENU_ITEMS: MenuItem[] = [
   // ========================================================
-  // CATEGORY 1: PASTRIES
+  // CATEGORY 1: PASTRIES (8 items)
   // ========================================================
   {
     id: 'pastry-01',
@@ -12,6 +12,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 160,
     description: 'Decadent multi-layered dark chocolate sponge draped in rich Belgian chocolate ganache.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'pastry-02',
@@ -20,6 +21,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 140,
     description: 'Traditional chocolate sponge layered with tart cherries, whipped vanilla cream, and chocolate curls.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'pastry-03',
@@ -28,6 +30,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 170,
     description: 'Vibrant crimson buttermilk sponge layered with smooth citrus-kissed cream cheese frosting.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'pastry-04',
@@ -36,6 +39,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 175,
     description: 'Golden sponge layered with sea salt caramel fudge and toasted hazelnut praline.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'pastry-05',
@@ -44,6 +48,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 165,
     description: 'Light vanilla sponge infused with fresh Alphonso mango compote and light diplomat cream.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'pastry-06',
@@ -52,6 +57,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 155,
     description: 'Intense Dutch processed cocoa sponge coated with bittersweet chocolate mirror glaze.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'pastry-07',
@@ -60,6 +66,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 135,
     description: 'Caramel sponge paired with butterscotch mousse and golden caramelized nut crunch.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'pastry-08',
@@ -68,10 +75,11 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 185,
     description: 'Almond joconde sponge soaked in coffee syrup, layered with ganache and coffee buttercream.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80',
   },
 
   // ========================================================
-  // CATEGORY 2: CHEESECAKES
+  // CATEGORY 2: CHEESECAKES (8 items)
   // ========================================================
   {
     id: 'cheesecake-01',
@@ -80,6 +88,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 240,
     description: 'Dense, velvety slow-baked Philadelphia style cheesecake topped with luscious wild blueberry compote.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'cheesecake-02',
@@ -88,6 +97,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 260,
     description: 'Creamy baked cheesecake layered over caramelized Biscoff crust, topped with warmed speculoos spread.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1567171466295-4afa63d45416?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'cheesecake-03',
@@ -96,6 +106,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 220,
     description: 'The golden standard: pure cream cheese baked slow with Madagascar vanilla over a buttery graham base.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'cheesecake-04',
@@ -104,6 +115,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 250,
     description: 'Creamy cheesecake marbled with rich hazelnut Nutella spread and toasted hazelnut sprinkles.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'cheesecake-05',
@@ -112,6 +124,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 245,
     description: 'San Sebastián style crustless cheesecake with a caramelized, deeply roasted top and molten center.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'cheesecake-06',
@@ -120,6 +133,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 235,
     description: 'Chilled cream cheese slice finished with house-made whole strawberry reduction.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1567327613485-fbc7bf196198?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'cheesecake-07',
@@ -128,6 +142,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 255,
     description: 'Rich dark chocolate infused cream cheese filling over an Oreo crumble crust.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1508737027454-e6454ef45afd?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'cheesecake-08',
@@ -136,10 +151,11 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 230,
     description: 'Refreshing baked cheesecake topped with tart lemon curd and fresh candied citrus zest.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80',
   },
 
   // ========================================================
-  // CATEGORY 3: PUFFS & BAKERY SNACKS
+  // CATEGORY 3: PUFFS & BAKERY SNACKS (8 items)
   // ========================================================
   {
     id: 'puff-01',
@@ -148,6 +164,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 65,
     description: 'Flaky golden puff pastry filled with tandoori spiced cottage cheese cubes and bell peppers.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'puff-02',
@@ -156,6 +173,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 85,
     description: 'Crisp laminated pastry stuffed with aromatic slow-cooked minced chicken and whole spices.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'puff-03',
@@ -164,6 +182,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 50,
     description: 'Traditional bakery potato and green pea filling seasoned with cumin, coriander, and garam masala.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'puff-04',
@@ -172,6 +191,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 90,
     description: 'Flaky pastry filled with shredded chicken simmered in rich makhani tomato butter gravy.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'puff-05',
@@ -180,6 +200,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 75,
     description: 'Sauteed button mushrooms folded in garlic thyme cream wrapped in crisp pastry.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'puff-06',
@@ -188,6 +209,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 70,
     description: 'Golden sweet corn kernels and melted mozzarella stuffed inside a flaky pastry parcel.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'puff-07',
@@ -196,6 +218,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 65,
     description: 'Half boiled egg topped with sauteed onion pepper relish wrapped in multi-layered pastry.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'puff-08',
@@ -204,10 +227,11 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 85,
     description: 'Juicy smoked chicken frankfurter rolled in buttery puff pastry with dijon mustard hints.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80',
   },
 
   // ========================================================
-  // CATEGORY 4: DOUGHNUTS
+  // CATEGORY 4: DOUGHNUTS (8 items)
   // ========================================================
   {
     id: 'doughnut-01',
@@ -216,6 +240,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 95,
     description: 'Light, airy yeast doughnut dipped in smooth milk chocolate glaze with dark chocolate drizzle.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'doughnut-02',
@@ -224,6 +249,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 120,
     description: 'Pillow-soft Berliner doughnut generously stuffed with hazelnut Nutella spread and dusted with sugar.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'doughnut-03',
@@ -232,6 +258,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 105,
     description: 'Dipped in 55% dark chocolate glaze and finished with crunchy roasted cocoa nibs.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'doughnut-04',
@@ -240,6 +267,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 85,
     description: 'Warm fluffy ring doughnut rolled in aromatic Ceylon cinnamon and fine granulated sugar.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1583338917451-face2751d8d5?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'doughnut-05',
@@ -248,6 +276,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 110,
     description: 'Creamy white chocolate glaze adorned with freeze-dried berries and strawberry curls.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'doughnut-06',
@@ -256,6 +285,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 115,
     description: 'Golden caramel glaze sprinkled with fleur de sel crystals and crunchy butter toffee bits.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1612240498936-65f5101365d2?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'doughnut-07',
@@ -264,6 +294,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 125,
     description: 'Filled with velvety vanilla pastry cream and crowned with glossy chocolate fudge.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'doughnut-08',
@@ -272,10 +303,11 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 130,
     description: 'Glazed with melted Lotus Biscoff spread and topped with crunchy speculoos biscuit crumbs.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80',
   },
 
   // ========================================================
-  // CATEGORY 5: SPECIALTY CAKES & DESSERTS
+  // CATEGORY 5: SPECIALTY CAKES & DESSERTS (8 items)
   // ========================================================
   {
     id: 'specialty-01',
@@ -285,6 +317,7 @@ export const MENU_ITEMS: MenuItem[] = [
     weight: '450 g',
     description: 'Traditional moist loaf cake packed with candied fruit peels, plump raisins, walnuts, and almonds.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'specialty-02',
@@ -293,6 +326,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 140,
     description: 'Fudgy, dense Belgian chocolate brownie studded with toasted California walnuts.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'specialty-03',
@@ -301,6 +335,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 195,
     description: 'Italian savoiardi ladyfingers soaked in espresso, layered with whipped mascarpone cream and cocoa.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'specialty-04',
@@ -309,6 +344,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 165,
     description: 'Warm chocolate cake with a molten flowing chocolate center, served fresh.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'specialty-05',
@@ -317,6 +353,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 175,
     description: 'Butter biscuit crust layered with thick dulce de leche toffee, fresh sliced bananas, and whipped cream.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'specialty-06',
@@ -325,6 +362,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 110,
     description: 'Fluffy golden muffin bursting with real blueberries and topped with a buttery streusel crunch.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'specialty-07',
@@ -333,6 +371,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 240,
     description: 'Moist vanilla butter loaf cake studded with semi-sweet chocolate morsels, perfect with coffee.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'specialty-08',
@@ -341,10 +380,11 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 180,
     description: 'Layered red velvet cake crumbs and sweet cream cheese mousse presented in an artisan glass jar.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80',
   },
 
   // ========================================================
-  // CATEGORY 6: CELEBRATION CAKES
+  // CATEGORY 6: CELEBRATION CAKES (8 items)
   // ========================================================
   {
     id: 'celebration-01',
@@ -354,6 +394,7 @@ export const MENU_ITEMS: MenuItem[] = [
     weight: '500 g',
     description: 'Rich dark chocolate sponge coated in smooth Belgian chocolate truffle ganache.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'celebration-02',
@@ -363,6 +404,7 @@ export const MENU_ITEMS: MenuItem[] = [
     weight: '1 kg',
     description: 'Full-size celebratory truffle cake with elegant chocolate piping and curls.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'celebration-03',
@@ -372,6 +414,7 @@ export const MENU_ITEMS: MenuItem[] = [
     weight: '500 g',
     description: 'Classic chocolate celebration cake with whipped cream, cherries, and dark chocolate flakes.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'celebration-04',
@@ -381,6 +424,7 @@ export const MENU_ITEMS: MenuItem[] = [
     weight: '500 g',
     description: 'Vanilla sponge layered with vanilla custard and decorated with an abundance of fresh seasonal fruits.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'celebration-05',
@@ -390,6 +434,7 @@ export const MENU_ITEMS: MenuItem[] = [
     weight: '500 g',
     description: 'Artisanal red velvet crumb cake with cream cheese frosting, ideal for anniversaries.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'celebration-06',
@@ -399,6 +444,7 @@ export const MENU_ITEMS: MenuItem[] = [
     weight: '500 g',
     description: 'Caramel sponge paired with butterscotch praline and whipped cream.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'celebration-07',
@@ -408,6 +454,7 @@ export const MENU_ITEMS: MenuItem[] = [
     weight: '500 g',
     description: 'Light sponge layered with juicy pineapple compote and fresh whipped cream.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'celebration-08',
@@ -417,10 +464,11 @@ export const MENU_ITEMS: MenuItem[] = [
     weight: '1 kg',
     description: 'Showstopper celebration cake with Nutella glaze, hazelnut ganache, and Ferrero Rocher crowns.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80',
   },
 
   // ========================================================
-  // CATEGORY 7: HOT COFFEE & BEVERAGES
+  // CATEGORY 7: HOT COFFEE & BEVERAGES (12 items)
   // ========================================================
   {
     id: 'coffee-01',
@@ -430,6 +478,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'A concentrated, aromatic shot of freshly roasted 100% Arabica beans with golden crema.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-02',
@@ -439,6 +488,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Double extraction of espresso for an intense, bold coffee foundation.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-03',
@@ -448,6 +498,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Rich double shot espresso diluted with hot water for a smooth, deep black coffee profile.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1551030173-122aabc4489c?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-04',
@@ -457,6 +508,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Bold espresso shot delicately stained with a dollop of velvety steamed milk froth.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-05',
@@ -466,6 +518,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Equal parts espresso, steamed milk, and dense microfoam dusted with cocoa powder.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-06',
@@ -475,6 +528,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Smooth espresso blended with abundant silky steamed milk and delicate latte art.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-07',
@@ -484,6 +538,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Ristretto double shot folded through velvety textured microfoam in European bistro style.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-08',
@@ -493,6 +548,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Espresso combined with rich Belgian dark chocolate ganache, steamed milk, and whipped cream.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-09',
@@ -502,6 +558,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Espresso and steamed milk infused with roasted hazelnut syrup.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-10',
@@ -511,6 +568,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Steamed milk with vanilla syrup, marked with espresso and crosshatched with buttery caramel sauce.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1485808191679-5f86510681a2?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-11',
@@ -520,6 +578,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Pure melted Belgian chocolate simmered with fresh whole milk and crowned with marshmallows.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'coffee-12',
@@ -529,10 +588,11 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Equal parts espresso and warm milk served in a Libbey Gibraltar glass to soften acidity.',
     addOns: COFFEE_ADD_ONS,
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
   },
 
   // ========================================================
-  // CATEGORY 8: STARTERS & APPETIZERS
+  // CATEGORY 8: STARTERS & APPETIZERS (12 items)
   // ========================================================
   {
     id: 'starter-01',
@@ -542,6 +602,7 @@ export const MENU_ITEMS: MenuItem[] = [
     badge: 'Must try',
     description: 'Crispy fried chicken fillets tossed in our signature African bird’s eye peri peri spice seasoning, served with herb garlic dip.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-02',
@@ -550,6 +611,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 260,
     description: 'Crisp tortilla corn chips loaded with melted cheddar cheese sauce, refried beans, jalapenos, and salsa.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-03',
@@ -558,6 +620,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 290,
     description: 'Crispy chicken patty tossed in spicy sweet gochujang glaze with pickled radish on a toasted brioche bun.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-04',
@@ -566,6 +629,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 180,
     description: 'Warm sourdough batons brushed with roasted garlic herb butter and baked with melted mozzarella.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-05',
@@ -574,6 +638,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 160,
     description: 'Skin-on golden potato fries dusted with tangy peri peri seasoning blend, served with chili dip.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-06',
@@ -582,6 +647,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 240,
     description: 'Toasted multigrain bread layered with sliced smoked chicken ham, sunny egg, and sharp cheddar cheese.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-07',
@@ -590,6 +656,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 320,
     description: 'Tender chicken wings fried crisp and tossed in smoky hickory BBQ glaze with toasted sesame.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-08',
@@ -598,6 +665,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 280,
     description: 'Spaghetti pasta tossed in creamy parmesan garlic butter sauce with fresh parsley and mushrooms.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1621996346565-e3d5d628169e?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-09',
@@ -606,6 +674,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 330,
     description: 'Spaghetti tossed in parmesan cream sauce with grilled herb chicken strips and cracked black pepper.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-10',
@@ -614,6 +683,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 210,
     description: 'Bite-sized spiced cottage cheese cubes crumb-fried golden, served with mint coriander mayo.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-11',
@@ -622,6 +692,7 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 220,
     description: 'Spicy jalapeno halves stuffed with cream cheese and cheddar, encased in a crunchy crumb shell.',
     isVeg: true,
+    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'starter-12',
@@ -630,5 +701,6 @@ export const MENU_ITEMS: MenuItem[] = [
     price: 310,
     description: 'Marinated chicken breast strips breaded in panko crumbs and fried golden, with honey dijon dip.',
     isVeg: false,
+    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=80',
   },
 ];
